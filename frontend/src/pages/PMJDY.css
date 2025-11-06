@@ -1,0 +1,34 @@
+.scheme-header {
+  background-color: #0a8f3c;
+  color: white; /* This makes all text inside header white */
+  padding: 20px 40px;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
+}
+
+.scheme-header h1 {
+  color: #ffffff; /* Explicit white color for the heading */
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.scheme-content {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 0 0 8px 8px;
+  line-height: 1.7;
+  color: #333;
+  max-width: 1000px;
+  margin: 20px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.scheme-content ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.scheme-content li {
+  margin-bottom: 6px;
+}

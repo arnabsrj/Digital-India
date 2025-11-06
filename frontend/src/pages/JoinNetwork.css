@@ -1,0 +1,85 @@
+.join-network-container {
+  background-color: #ffffff;
+  color: #222;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.7;
+}
+
+/* --- Green Banner --- */
+.join-green-banner {
+  background-color: #0a8f3c;
+  color: #ffffff;
+  text-align: center;
+  padding: 60px 0 50px 0;
+  border-radius: 0 0 40px 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.join-green-banner h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* --- Main Section --- */
+.join-sections {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 60px 8%;
+  flex-wrap: wrap;
+  background: #ffffff;
+}
+
+.join-card {
+  flex: 1;
+  min-width: 350px;
+  max-width: 48%;
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+.join-card h2 {
+  color: #0a8f3c;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+.join-card p {
+  margin-bottom: 15px;
+  color: #333;
+  text-align: justify;
+}
+
+.join-card ul {
+  padding-left: 25px;
+  list-style: disc;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.join-note {
+  font-weight: 500;
+  color: #222;
+}
+
+.join-contact {
+  font-style: italic;
+  color: #555;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+  .join-sections {
+    flex-direction: column;
+    padding: 40px 6%;
+  }
+
+  .join-card {
+    max-width: 100%;
+  }
+
+  .join-green-banner h1 {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,20 @@
+# Ignore system / IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+frontend.zip
+# Ignore dependencies (handled inside their own .gitignore too)
+frontend/node_modules/
+Server/node_modules/
+
+# Ignore build outputs
+frontend/build/
+frontend/dist/
+Server/dist/
+Server/build/
+
+# Ignore environment files
+**/.env
+**/.env.local
+**/.env.*

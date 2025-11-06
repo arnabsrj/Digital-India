@@ -1,0 +1,57 @@
+.financial-page {
+  max-width: 1000px;
+  margin: 50px auto;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.7;
+}
+
+/* Header section */
+.financial-page h1 {
+  background-color: #0a8f3c; /* same green as PMJDY header */
+  color: #ffffff;            /* white heading text */
+  padding: 25px 0;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Content section */
+.financial-page p {
+  font-size: 1rem;
+  color: #333;
+  padding: 20px 40px;
+  margin: 0;
+  text-align: justify;
+}
+
+/* Subheadings */
+.financial-page h2 {
+  font-size: 1.3rem;
+  color: #0a8f3c;
+  font-weight: 600;
+  margin: 30px 40px 10px 40px;
+}
+
+/* Lists */
+.financial-page ul {
+  padding-left: 60px;
+  margin: 10px 0 20px 0;
+}
+
+.financial-page ul li {
+  margin-bottom: 8px;
+  color: #444;
+  font-size: 1rem;
+}
+
+/* Optional: hover effect for better interactivity */
+.financial-page ul li:hover {
+  color: #0a8f3c;
+  transition: color 0.2s ease-in-out;
+}
