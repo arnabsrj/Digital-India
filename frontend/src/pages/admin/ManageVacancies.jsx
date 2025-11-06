@@ -17,7 +17,9 @@ const ManageVacancies = () => {
   const fetchVacancies = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5000/api/vacancies");
+      const res = await fetch(
+        "https://digital-india-backend-unnn.onrender.com/api/vacancies"
+      );
       if (!res.ok) throw new Error("Failed to fetch vacancies");
       const data = await res.json();
       setVacancies(data);
@@ -35,14 +37,24 @@ const ManageVacancies = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/vacancies", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${getToken()}`,
-        },
-        body: JSON.stringify({ title, description, location, state, district, salary }),
-      });
+      const res = await fetch(
+        "https://digital-india-backend-unnn.onrender.com/api/vacancies",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${getToken()}`,
+          },
+          body: JSON.stringify({
+            title,
+            description,
+            location,
+            state,
+            district,
+            salary,
+          }),
+        }
+      );
       if (!res.ok) throw new Error("Failed to create vacancy");
 
       setTitle("");
@@ -68,35 +80,67 @@ const ManageVacancies = () => {
           <form className="admin-form" onSubmit={submitHandler}>
             <div className="admin-form-group">
               <label>Title</label>
-              <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
+              <input
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                required
+              />
             </div>
             <div className="admin-form-group">
               <label>Description</label>
-              <textarea value={description} onChange={(e) => setDescription(e.target.value)} required />
+              <textarea
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                required
+              />
             </div>
             <div className="admin-form-group">
               <label>Location</label>
-              <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} required />
+              <input
+                type="text"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                required
+              />
             </div>
             <div className="admin-form-group">
               <label>District</label>
-              <input type="text" value={district} onChange={(e) => setDistrict(e.target.value)} required />
+              <input
+                type="text"
+                value={district}
+                onChange={(e) => setDistrict(e.target.value)}
+                required
+              />
             </div>
             <div className="admin-form-group">
               <label>State</label>
-              <input type="text" value={state} onChange={(e) => setState(e.target.value)} required />
+              <input
+                type="text"
+                value={state}
+                onChange={(e) => setState(e.target.value)}
+                required
+              />
             </div>
             <div className="admin-form-group">
               <label>Salary (optional)</label>
-              <input type="text" value={salary} onChange={(e) => setSalary(e.target.value)} />
+              <input
+                type="text"
+                value={salary}
+                onChange={(e) => setSalary(e.target.value)}
+              />
             </div>
-            <button type="submit" className="admin-btn">Post Vacancy</button>
+            <button type="submit" className="admin-btn">
+              Post Vacancy
+            </button>
           </form>
         </div>
       </div>
 
       <div className="admin-card">
-        <div className="admin-card-header"><h2>Existing Vacancies</h2></div>
+        <div className="admin-card-header">
+          <h2>Existing Vacancies</h2>
+        </div>
         <div className="admin-card-body">
           {loading ? (
             <p className="loading-text">Loading...</p>
@@ -106,8 +150,12 @@ const ManageVacancies = () => {
                 <li key={v._id} className="admin-list-item">
                   <div>
                     <h3>{v.title}</h3>
-                    <p>{v.location}, {v.district}, {v.state}</p>
-                    <p><b>Status:</b> {v.status}</p>
+                    <p>
+                      {v.location}, {v.district}, {v.state}
+                    </p>
+                    <p>
+                      <b>Status:</b> {v.status}
+                    </p>
                   </div>
                 </li>
               ))}

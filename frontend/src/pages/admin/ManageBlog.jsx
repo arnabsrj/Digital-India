@@ -15,7 +15,9 @@ const ManageBlog = () => {
   const fetchPosts = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5000/api/blog");
+      const res = await fetch(
+        "https://digital-india-backend-unnn.onrender.com/api/blog"
+      );
       if (!res.ok) throw new Error("Failed to fetch posts");
       const data = await res.json();
       setPosts(data);
@@ -40,8 +42,8 @@ const ManageBlog = () => {
     try {
       const method = editingId ? "PUT" : "POST";
       const url = editingId
-        ? `http://localhost:5000/api/blog/${editingId}`
-        : "http://localhost:5000/api/blog";
+        ? `https://digital-india-backend-unnn.onrender.com/api/blog/${editingId}`
+        : "https://digital-india-backend-unnn.onrender.com/api/blog";
 
       const formData = new FormData();
       formData.append("title", title);
@@ -81,9 +83,12 @@ const ManageBlog = () => {
   const deletePost = async (id) => {
     if (!window.confirm("Are you sure you want to delete this post?")) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/blog/${id}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `https://digital-india-backend-unnn.onrender.com/api/blog/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
       if (!res.ok) throw new Error("Failed to delete post");
       setPosts(posts.filter((post) => post._id !== id));
     } catch (err) {
@@ -157,7 +162,7 @@ const ManageBlog = () => {
                       src={
                         post.image.startsWith("http")
                           ? post.image
-                          : `http://localhost:5000${post.image}`
+                          : `https://digital-india-backend-unnn.onrender.com${post.image}`
                       }
                       alt="Post"
                       style={{ width: "120px", borderRadius: "8px" }}

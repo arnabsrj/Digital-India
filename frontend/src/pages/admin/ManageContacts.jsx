@@ -17,13 +17,17 @@ const ManageContacts = () => {
   const fetchContacts = async () => {
     try {
       const adminInfo = JSON.parse(localStorage.getItem("adminInfo"));
-      if (!adminInfo || !adminInfo.token) throw new Error("You are not authorized.");
+      if (!adminInfo || !adminInfo.token)
+        throw new Error("You are not authorized.");
 
-      const res = await fetch("http://localhost:5000/api/contact", {
-        headers: {
-          Authorization: `Bearer ${adminInfo.token}`,
-        },
-      });
+      const res = await fetch(
+        "https://digital-india-backend-unnn.onrender.com/api/contact",
+        {
+          headers: {
+            Authorization: `Bearer ${adminInfo.token}`,
+          },
+        }
+      );
 
       if (!res.ok) throw new Error("Failed to fetch contact messages");
       const data = await res.json();
@@ -60,11 +64,19 @@ const ManageContacts = () => {
   const totalPages = Math.ceil(filteredContacts.length / contactsPerPage);
 
   if (loading) {
-    return <div className="admin-container"><h2>Loading Contacts...</h2></div>;
+    return (
+      <div className="admin-container">
+        <h2>Loading Contacts...</h2>
+      </div>
+    );
   }
 
   if (error) {
-    return <div className="admin-container"><h2>Error: {error}</h2></div>;
+    return (
+      <div className="admin-container">
+        <h2>Error: {error}</h2>
+      </div>
+    );
   }
 
   return (

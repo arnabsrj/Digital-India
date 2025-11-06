@@ -1,47 +1,49 @@
 // --- THIS IS THE CORRECT (EMAIL) VERSION ---
 // This version is for your localhost server.
 
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 // --- FIX: Import your external CSS file ---
-import './AdminLogin.css'; 
+import "./AdminLogin.css";
 
 const AdminLogin = () => {
-  const [email, setEmail] = useState(''); 
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
-    const adminInfo = localStorage.getItem('adminInfo');
+    const adminInfo = localStorage.getItem("adminInfo");
     if (adminInfo) {
-      navigate('/admin');
+      navigate("/admin");
     }
   }, [navigate]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
     try {
       // The URL is '/api/admin/login'
-      const res = await fetch('http://localhost:5000/api/admin/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }), 
-      });
+      const res = await fetch(
+        "https://digital-india-backend-unnn.onrender.com/api/admin/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.message || 'Login failed');
+        throw new Error(data.message || "Login failed");
       }
-      
-      localStorage.setItem('adminInfo', JSON.stringify(data));
-      navigate('/admin');
 
+      localStorage.setItem("adminInfo", JSON.stringify(data));
+      navigate("/admin");
     } catch (err) {
       setError(err.message);
     }
@@ -54,11 +56,11 @@ const AdminLogin = () => {
         <form className="login-form" onSubmit={submitHandler}>
           <h1>Admin Login</h1>
           {error && <p className="login-error">{error}</p>}
-          
+
           <div className="login-form-group">
-            <label htmlFor="email">Email</label> 
+            <label htmlFor="email">Email</label>
             <input
-              type="email" 
+              type="email"
               id="email"
               value={email}
               // --- FIX: Corrected typo (was e.Tira.value) ---
@@ -66,7 +68,7 @@ const AdminLogin = () => {
               required
             />
           </div>
-          
+
           <div className="login-form-group">
             <label htmlFor="password">Password</label>
             <input
@@ -77,7 +79,9 @@ const AdminLogin = () => {
               required
             />
           </div>
-          <button type="submit" className="login-btn">Login</button>
+          <button type="submit" className="login-btn">
+            Login
+          </button>
         </form>
       </div>
     </div>
@@ -86,4 +90,3 @@ const AdminLogin = () => {
 
 // --- FIX: Changed default export back to AdminLogin ---
 export default AdminLogin;
-

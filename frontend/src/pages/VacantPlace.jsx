@@ -9,7 +9,9 @@ const VacantPlace = () => {
   useEffect(() => {
     const fetchVacancies = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/vacancies");
+        const res = await fetch(
+          "https://digital-india-backend-unnn.onrender.com/api/vacancies"
+        );
         const data = await res.json();
         setVacancies(data);
       } catch (err) {
@@ -42,14 +44,24 @@ const VacantPlace = () => {
               <div key={item._id} className="vp-vacancy-card">
                 <div className="vp-location">
                   <h3>{item.location}</h3>
-                  <p>{item.district}, {item.state}</p>
+                  <p>
+                    {item.district}, {item.state}
+                  </p>
                 </div>
                 <div>
-                  <span className={item.status === 'Available' ? 'vp-status-available' : 'vp-status-filled'}>
+                  <span
+                    className={
+                      item.status === "Available"
+                        ? "vp-status-available"
+                        : "vp-status-filled"
+                    }
+                  >
                     {item.status}
                   </span>
                 </div>
-                <Link to="/register" className="vp-apply-btn">Apply Now</Link>
+                <Link to="/register" className="vp-apply-btn">
+                  Apply Now
+                </Link>
               </div>
             ))}
           </div>

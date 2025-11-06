@@ -19,11 +19,14 @@ const ManageApplications = () => {
         throw new Error("You are not authorized.");
       }
 
-      const res = await fetch("http://localhost:5000/api/applications", {
-        headers: {
-          Authorization: `Bearer ${adminInfo.token}`,
-        },
-      });
+      const res = await fetch(
+        "https://digital-india-backend-unnn.onrender.com/api/applications",
+        {
+          headers: {
+            Authorization: `Bearer ${adminInfo.token}`,
+          },
+        }
+      );
 
       if (!res.ok) throw new Error("Failed to fetch applications");
       const data = await res.json();
