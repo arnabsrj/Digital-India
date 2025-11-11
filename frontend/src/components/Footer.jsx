@@ -56,8 +56,7 @@ const Footer = () => {
             <div className="footer-link-flex align-start">
               <MapPinIcon />
               <p>
-                1137, R.G. Towers, Above arrow Showroom, Bangalore-560038,
-                Karnataka, India
+                Hobli, Outer Ring Road Bellandur, Bangalore, Bangalore South, Karnataka, India, 560103
               </p>
             </div>
             <div className="footer-link-flex">
@@ -66,7 +65,7 @@ const Footer = () => {
             </div>
             <div className="footer-link-flex">
               <PhoneIcon />
-              <span>+91-8972476389</span>
+              <span>+91-8982855006</span>
             </div>
             <a href="/contacts" className="footer-link-apply">
               Apply Online for CSP
