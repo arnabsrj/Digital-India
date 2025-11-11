@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './Contact.css';
 
 // --- Icons ---
@@ -40,14 +40,51 @@ const BatteryIcon = () => (
 );
 
 const Contact = () => {
+  const [showPopup, setShowPopup] = useState(true);
+  const popupRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Form Submitted! (This is a demo)");
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
+        setShowPopup(false);
+      }
+    };
+
+    if (showPopup) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = 'hidden'; // prevent scrolling
+    } else {
+      document.body.style.overflow = 'auto'; // allow scrolling again
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = 'auto';
+    };
+  }, [showPopup]);
+
+  const handleApplyClick = () => {
+    const contactForm = document.querySelector('.jn-form-section');
+    if (contactForm) {
+      contactForm.scrollIntoView({ behavior: 'smooth' });
+    }
+    setShowPopup(false);
+  };
+
   return (
     <main className="contact-register-page">
+      {showPopup && (
+        <div className="popup-overlay">
+          <div className="popup-button" ref={popupRef} onClick={handleApplyClick}>
+            Apply Now
+          </div>
+        </div>
+      )}
       <div className="cr-container">
 
         {/* --- Sidebar --- */}
