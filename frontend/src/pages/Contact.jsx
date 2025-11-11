@@ -176,8 +176,8 @@ const Contact = () => {
               <p>Bangalore-560038, Karnataka, India</p>
               <br />
               <p>+91-8972476389</p>
-              <p>digitalindiacsp@gmail.com</p>
-              <p>info@digitalindiacsp.in</p>
+              <p>digitalcsp@gmail.com</p>
+              <p>info@digitalcsp.in</p>
             </div>
           </section>
         </section>

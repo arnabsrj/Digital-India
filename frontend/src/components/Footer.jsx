@@ -62,7 +62,7 @@ const Footer = () => {
             </div>
             <div className="footer-link-flex">
               <MailIcon />
-              <span>info@digitalindiacsp.in</span>
+              <span>info@digitalcsp.in</span>
             </div>
             <div className="footer-link-flex">
               <PhoneIcon />

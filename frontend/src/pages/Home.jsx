@@ -138,6 +138,11 @@ const RightArrowIcon = () => (
 );
 
 const Home = () => {
+
+    // Language Toggle State
+  const [language, setLanguage] = useState("hindi"); // Default: Hindi
+
+  
   // --- Carousel State ---
   // Using placeholders for slides. Replace with your actual image paths.
   const slides = [
@@ -353,12 +358,13 @@ const Home = () => {
       </section>
 
       {/* Welcome Section */}
+          {/* Welcome Section - Language Toggle Fixed */}
       <section className="welcome-section">
         <div className="welcome-content">
           <h2>Welcome To Digital India</h2>
           <h3>15 Years of Service Excellence</h3>
           <p>
-            Digitalindiacsp Services India Pvt. Ltd is known for providing great
+            Digitalcsp Services India Pvt. Ltd is known for providing great
             administration in Online Payments from the past 15 years. It offers
             the digital business of micro payments of services and remittances
             in a ‘real-time’ environment. It is a India’s Largest Payments
@@ -371,23 +377,49 @@ const Home = () => {
             Operators, multiple Services Providers and Banks, pan India.
           </p>
         </div>
+
+        {/* Language Toggle with State */}
         <div className="warning-content">
           <div className="language-tabs">
-            <button className="tab active">Hindi</button>
-            <button className="tab">English</button>
+            <button
+              className={`tab ${language === "hindi" ? "active" : ""}`}
+              onClick={() => setLanguage("hindi")}
+            >
+              Hindi
+            </button>
+            <button
+              className={`tab ${language === "english" ? "active" : ""}`}
+              onClick={() => setLanguage("english")}
+            >
+              English
+            </button>
           </div>
-          <p>
-            सावधानः हमारी संस्था (ऑक्सीजन सर्विसेज (इंडिया) प्राइवेट लिमिटेड) का
-            एकमात्र अधिकृत वेब साईट / पोर्टलः www.digitalindiacsp.inहै. हमारे
-            द्वारा दिये जाने वाले CSP की जानकारी केवल इसी साईट पर उपलब्ध है और
-            हमारे द्वारा अधिकृत व्यक्तिओं के नाम भी केवल इसी साईट पर उपलब्ध हैं.
-            हमें पता चला है कि (ऑक्सीजन सर्विसेज (इंडिया) प्राइवेट लिमिटेड) के
-            मिलता-जुलता नाम से जैसे – DIGITALCSP.ORG, ऑक्सीजन बीसी,
-            (DIGITALCSP.BC) ऑक्सीजन सीएसपी (DIGITALCSP CSP), इत्यादि कुछ फ्रॉड
-            संस्थायें बेरोजगार लोगों से ऑक्सीजन के नाम से धोखाधड़ी का काम कर रही
-            हैं. सावधान रहें और ऐसे फ्रॉड लोगों / संस्थाओं के बारे में नजदीकी
-            पुलिस स्टेशन में मामला दर्ज करावें.
-          </p>
+
+          {/* Conditional Text */}
+          {language === "hindi" ? (
+            <p>
+              सावधानः हमारी संस्था (ऑक्सीजन सर्विसेज (इंडिया) प्राइवेट लिमिटेड) का
+              एकमात्र अधिकृत वेब साईट / पोर्टलः www.digitalcsp.inहै. हमारे
+              द्वारा दिये जाने वाले CSP की जानकारी केवल इसी साईट पर उपलब्ध है और
+              हमारे द्वारा अधिकृत व्यक्तिओं के नाम भी केवल इसी साईट पर उपलब्ध हैं.
+              हमें पता चला है कि (ऑक्सीजन सर्विसेज (इंडिया) प्राइवेट लिमिटेड) के
+              मिलता-जुलता नाम से जैसे – DIGITALCSP.ORG, ऑक्सीजन बीसी,
+              (DIGITALCSP.BC) ऑक्सीजन सीएसपी (DIGITALCSP CSP), इत्यादि कुछ फ्रॉड
+              संस्थायें बेरोजगार लोगों से ऑक्सीजन के नाम से धोखाधड़ी का काम कर रही
+              हैं. सावधान रहें और ऐसे फ्रॉड लोगों / संस्थाओं के बारे में नजदीकी
+              पुलिस स्टेशन में मामला दर्ज करावें.
+            </p>
+          ) : (
+            <p>
+              Caution: Our organization (Oxygen Services (India) Private Limited)
+              has only one authorized website/portal: www.digitalcsp.in. All CSP
+              information and authorized personnel names are available only on this
+              site. We have learned that fraudulent entities with similar names
+              like DIGITALCSP.ORG, Oxygen BC, (DIGITALCSP.BC), Oxygen CSP, etc.
+              are cheating unemployed people in the name of Oxygen. Stay alert and
+              report such frauds to the nearest police station.
+            </p>
+          )}
         </div>
       </section>
 
